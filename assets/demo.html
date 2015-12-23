@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>猎多多</title>
+<script src="assets/js/min.js"></script>
+<script src="assets/js/extend.js"></script>
+<style>
+	*{margin:0; padding:0;}
+	.block{ width:1000px; margin:0 auto;}
+	html{ overflow-x:auto; overflow-y:hidden;  height:100%;}
+	body{ font-size:14px;font-family:'Microsoft YaHei','Hiragino Sans GB',helvetica,arial; color:#4c4c4c; height:100%; min-height:100%; }
+	body,tr,td,thead,tbody,ul,li,div,span,img,h1,h2,h3,h4,h5,h6,em,input,select,a,p,cite,header,aside,footer,section,article,figure,nav,menu{ margin:0; padding:0; }
+	ul,li{ list-style:none; }
+	.left,.lt{ float:left; }
+	.right,.rt{ float:right; }
+	a,a:hover{ text-decoration:none; }
+	a{ color:#4c4c4c;}
+	h1,h2,h3,h4,h5,h6,em,cite{ font-style:normal;}
+	a img,a:hover img{ vertical-align:top; display:block; border:none;}
+	header,aside,footer,section,article,figure,nav,menu{ display:block; }
+	input,select,textarea{ outline:none;  resize:none;}
+	.clearfix:after {clear:both;content:".";display:block;font-size:0;height:0;overflow:hidden;visibility:hidden;}
+	.clearfix {*zoom:1;}
+	textarea,input{ font-size:14px;font-family:'Microsoft YaHei','Hiragino Sans GB',helvetica,arial; }
+	.mt20{ margin-top:20px;}
+	/******tab*********/
+	.tab{ width:500px;background:#fff; }
+	.tab_head{ height:50px;}
+	.tab_head a{ height:50px; font-size:20px; width:25%;color:#666; line-height:50px; text-align:center; background:#f5f5f5; float:left; display:block; }
+	.tab_head a.cur{ background:#e4ecf2;}
+	.tab_con .cons{ display:none; border:1px #f5f5f5 solid; padding:50px;}
+	.tab .cur{ display:block;}
+	/******tab end*********/
+	
+	/******select*****/
+	.pub_select{ width:100px;border:1px #c5d1da solid;position:relative; }
+	.pub_select h2.select_tit{ height:43px;font-size:16px; cursor:pointer; line-height:43px; text-align:center; background-color:#fff;font-weight:normal; position:relative;z-index:2; }
+	.pub_select ul.select_opt{ width:98px; left:-1px; background:#fff;position:absolute;top:43px; border:2px #3a9fe3 solid; display:none; z-index:100;}
+	.pub_select ul.select_opt li{ font-size:12px; float:left; position:relative; display:block; width:100%;line-height:28px; }
+	.pub_select ul.select_opt li a{ display:block;margin:0;  border:none; background-color:#ffffff; width:100%; height:28px;font-size:16px; height:28px; line-height:28px;color:#808080; padding:0; text-align:center;border-bottom:1px #c5d1da solid;  border-radius:0!Important; }
+	.pub_select ul.select_opt li a:hover{ background-color:#3a9fe3; border-radius:0!Important;color:#fff; border-bottom:1px #3a9fe3 solid; }
+	.pub_select ul li ul{display:none;}
+	.pub_select ul li ul.cur{display:block;}
+	.pub_select ul.select_opt li a.hasChild:hover{ background-color:#3a9fe3;border-bottom:1px #3a9fe3 solid; }
+	.pub_select ul.select_opt li ul{ top:0; left:100%; position:absolute; width:100%;border:2px #c5d1da solid; margin-top:-2px; }
+	.pub_select ul.select_opt li ul li a{ border-radius:0!important;border-bottom:1px #c5d1da solid; }
+	.pub_select ul.select_opt li ul li a.hasChild:hover{background-color:#c5d1da;border-bottom:1px #c5d1da solid; }
+
+	/******select end*****/
+	
+	/*****star*******/
+	.star_btn,.star_btn a{background-image:url(assets/images/allstar.png); background-repeat:no-repeat;}
+	.star_btn{ width:96px; background:none;height:20px;  display:block; }
+	.star_btn a{width:17px; height:20px;background-position:0 -20px; margin-left:0px; margin-right:2px; cursor:pointer; display:inline; float:left;}
+	.star_btn a.on{background-position:0 0px;}
+	/*****star end*******/
+	
+	/*****pub_checkBox********/
+	.pub_checkBox,.pub_checkBox2{ width:24px; height:24px;background-image:url(assets/images/check_box.png); background-repeat:no-repeat; background-position:-1px -51px; cursor:pointer;}
+	.checked{background-position:-1px 0;}
+	/*****pub_checkBox end********/
+
+</style>
+</head>
+
+<body>
+	<div class="block">
+		<!---tab切换---->
+		<div class="tab">
+			<div class="tab_head clearfix">
+				<a href="javascript:;" class="cur">基本信息</a>
+				<a href="javascript:;">操作职位</a>
+				<a href="javascript:;">成单记录</a>
+				<a href="javascript:;">评价</a>
+			</div>
+			
+			<div class="tab_con">
+				<div class="cons cur">基本信息</div>
+				<div class="cons">操作职位</div>
+				<div class="cons">成单记录</div>
+				<div class="cons">评价</div>
+			</div>
+		</div>
+		<!---tab切换end---->
+		
+		<!---多级下拉菜单---->
+		<div class="pub_select mt20">
+			<h2 class="select_tit"><cite>地点</cite></h2>
+			<ul class="select_opt">
+				<li>
+					<a href="javascript:;" class="hasChild">北京</a>
+					<ul class="">
+						<li>
+							<a href="javascript:;" class="hasChild">朝阳</a>
+							<ul class="">
+								<li><a href="javascript:;">望京</a></li>
+								<li><a href="javascript:;">CBD</a></li>
+								<li><a href="javascript:;">国展</a></li>
+								<li><a href="javascript:;">亚运村</a></li>
+							</ul>
+						
+						</li>
+						<li><a href="javascript:;" class="hasChild">海淀</a></li>
+						<li><a href="javascript:;">大兴</a></li>
+					</ul>
+					
+				</li>
+				<li><a href="javascript:;">上海</a></li>
+			</ul>
+			<input type="hidden" value="地点" />
+		</div>
+		<!---多级下拉菜单end---->
+		
+		<!-----star 评分---->
+		<div class="star_btn mt20">
+			<a class="i-star"></a>
+			<a class="i-star"></a>
+			<a class="i-star"></a>
+			<a class="i-star"></a>
+			<a class="i-star"></a>
+			<input type="hidden" id="star_core">
+		</div>
+		<!-----star 评分end---->
+		
+		<!-----checkBox---->
+		<div class="pub_checkBox mt20 checked"><!---用class=checked来控制是否选中，如果选中，input的checked属性为true---->
+			<input type="hidden" checked="true">
+		</div>
+		<!-----checkBox end---->
+		
+	</div>
+	
+	<script>
+		$.tabFun($(".tab_head"),$(".tab_con"),"cur","mouseover");//tab切换
+		$(".pub_select").each(function(){//下拉选择
+			$.selectFun($(this));
+		});
+		$.setStar($(".star_btn"),"a",2,"on");//评分
+		$.checkBox($(".pub_checkBox"));
+		$.checkBox($(".pub_checkBox2"),2);
+	</script>
+</body>
+</html>
